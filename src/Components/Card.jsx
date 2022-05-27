@@ -1,13 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import {Container} from '@material-ui/core';
+import {Container,TextField,Button,Typography,Card,CardContent,CardActions,Grid,Paper} from '@material-ui/core';
+import {Link} from 'react-router-dom'
+import {useState,useEffect} from 'react'
 
-const useStyles = makeStyles({
+// to dispatch an action present in store's reducer and to obtain state from store
+import {useDispatch,useSelector} from 'react-redux'
+import {addComment} from '../Features/commentSlice'
+
+const useStyles = makeStyles((theme)=>({
   root: {
     width:'70%',
     padding:100,
@@ -23,16 +24,44 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-});
+ card:{
+   margin:50
+ },
+ typography:{
+   margin:10
+ },
+ paper: {
+  padding: theme.spacing(2),
+  textAlign: 'left',
+  color: theme.palette.text.secondary,
+},
+ 
+}));
 
 export default function SimpleCard({item}) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  const [text,setText] = useState('')
+  const [price,setPrice]=useState(Math.floor(Math.random()*100)+10)
+  const dispatch=useDispatch()
+  const comments=useSelector((state)=>state.comment.comment)
 
+
+  const handleClick=(e)=>{
+    e.preventDefault()
+    if (text){
+      dispatch(addComment(text))
+      setText('')
+    }
+
+  }
+
+  useEffect(()=>{
+    setPrice(Math.floor(Math.random()*100)+10)
+  },[])
   return (
     <Container className={classes.root}>
 
-    <Card >
+    <Card className={classes.card}>
       <CardContent align="center">
           <img src={item.strCategoryThumb} alt={item.strCategory}></img>
         <Typography variant="h5" align="center" color="textSecondary" gutterBottom>
@@ -42,15 +71,40 @@ export default function SimpleCard({item}) {
           {item.strCategoryDescription}
         </Typography>
         <Typography variant="h6" align="left"  gutterBottom>
-          Price: ${Math.floor(Math.random()*100)+10}
+          Price: ${price}
         </Typography>
         
       </CardContent>
-      <CardActions >
-        <Button size="small">Add to Cart</Button>
+      <CardActions  >
+        <Link to={`/cart/${item.strCategory}`}>
+        <Button size="small"  >Add to Cart</Button>
+        </Link>
       </CardActions>
     </Card>
+    <Card className={classes.card}>
+      <CardContent>
+        <Typography variant="h4" align="center">Reviews</Typography>
+        <Grid container spacing={2}>
+        {comments.map((comment,index)=>{
+          return <Grid item xs={12} key={index}>
+            <Paper className={classes.paper}>{index+1}.  {comment}</Paper>
+          </Grid>
+        })}
+        </Grid>
+      </CardContent>
+    </Card>
+    <Card className={classes.card}>
+      <CardContent>
+      <Typography variant="h5" align="center">Add Review</Typography>
+        <TextField label="Enter review" fullWidth value={text} onChange={(e)=>setText(e.target.value)}/>
+        <Typography variant="h5" align="center" className={classes.typography}>
+        <Button variant="contained" color="primary" onClick={handleClick}>Add</Button>
+
+        </Typography>
+      </CardContent>
+    </Card>
     </Container>
+    
 
   );
 }
