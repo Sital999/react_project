@@ -11,6 +11,9 @@ const useStyles = makeStyles(()=>({
     },
     paper:{
         padding:15
+    },
+    button:{
+        margin:20
     }
 }))
 
@@ -38,7 +41,9 @@ export default function SimplePaper({item}) {
           {item.strCategory}
           </Typography>
             <Typography align="center" >
-            <Link to={`/food/${item}`}><Button  variant="contained" color="primary" >Click to view</Button></Link>
+            <Link to={`/food/${item.idCategory}`}><Button className={classes.button} variant="contained" color="primary" >Click to view</Button></Link>
+         
+            <Link to={`/cart/${item.strCategory}`}><Button  variant="contained" color="primary" className={classes.button}>Add to Cart</Button></Link>
             </Typography>
          
            
