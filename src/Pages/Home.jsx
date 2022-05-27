@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import { fetchFood } from "../Features/foodSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -12,9 +11,10 @@ const useStyles = makeStyles(() => ({
     "justify-content": "center",
     "flex-wrap": "wrap",
   },
+//   div:{
+//     background:'linear-gradient(to top right, #f00244, #6c0e2e)'
+//   }
 }));
-
-
 
 export const Home = () => {
   const food = useSelector((state) => state.food);
@@ -23,21 +23,23 @@ export const Home = () => {
     dispatch(fetchFood());
   }, []);
   const classes = useStyles();
-  console.log(food)
+  let foods = [];
+
   return (
     <div className={classes.root}>
-        {food.loading && <div>...loading</div>}
-        {!food.loading && food.error?<div>{food.error}</div>:null}
-        {!food.loading && food.food.length?
-      food.map((item) => {
-        return (
-          <React.Fragment>
-            <Container>
-              <SimplePaper item={item} />
-            </Container>
-          </React.Fragment>
-        );
-      }):null}
+      {food.loading && <div>...loading</div>}
+      {!food.loading && food.error ? <div>{food.error}</div> : null}
+      {!food.loading && food.food
+        ? (foods = food.food.categories)
+          ? foods.map((item) => {
+              return (
+                <div key={item.idCategory} >
+                  <SimplePaper item={item} />
+                </div>
+              );
+            })
+          : null
+        : null}
     </div>
   );
 };

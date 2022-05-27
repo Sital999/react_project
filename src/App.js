@@ -16,9 +16,13 @@ class App extends Component {
         
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
+         
+     
             <Route path="contact" element={<Contact />} />
-            <Route path="/food/:id" element={<Food />}/>
+          </Routes>
+          <Routes>
+          <Route path="/food/:item" element={<Food />}/>
           </Routes>
         </Router>
         <Footer/>

@@ -15,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft:"45%",
   },
   app:{
-    background:'#fd5f64',
-    padding:10
+  
+    padding:10,
+    background:'linear-gradient(to top right, #f00244, #6c0e2e)'
   }
  
 }));
