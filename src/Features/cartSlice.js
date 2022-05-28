@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState={
-    numOfItems:0
+    numOfItems:2
 }
 
 const cartSlice=createSlice({
@@ -10,7 +10,8 @@ const cartSlice=createSlice({
     reducers:{
         increase:(state)=>{
              state.numOfItems++},
-        decrease:(state)=>{state.numOfItems--}
+        decrease:(state)=>{state.numOfItems--},
+       
     }
 })
 

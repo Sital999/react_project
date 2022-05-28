@@ -10,9 +10,12 @@ const commentSlice = createSlice({
     reducers:{
         addComment:(state,action)=>{
             state.comment.push(action.payload);
+        },
+        deleteComment:(state,action)=>{
+            state.comment.splice(action.payload,1)
         }
     }
 })
 
 export default commentSlice.reducer
-export const {addComment} = commentSlice.actions
+export const {addComment,deleteComment} =  commentSlice.actions

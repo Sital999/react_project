@@ -21,14 +21,16 @@ const Cart = () => {
   //   name for params should be same as passed from Route.
   const { name } = useParams();
   const dispatch = useDispatch();
-  const numOfItems = useSelector((state) => state.cart.numOfItems);
+  const numOfItems =useSelector((state) => state.cart.numOfItems) ;
+
+  
   return (
     <Container className={classes.container}>
       <Card>
-        <Grid container spacing={2}>
+      <Grid container spacing={2}>
           <Grid item xs={1}></Grid>
           <Grid item xs={6}>
-            <Typography variant="h4">{name}</Typography>
+               <Typography variant="h4">{name}</Typography> 
           </Grid>
           <Grid item xs={5}>
             {numOfItems > 0 ? (
@@ -41,7 +43,9 @@ const Cart = () => {
                     <Button
                       variant="contained"
                       onClick={() => {
-                        dispatch(increase());
+                        
+                          dispatch(increase());
+                       
                       }}
                     >
                       <AddIcon />
@@ -74,6 +78,7 @@ const Cart = () => {
             )}
           </Grid>
         </Grid>
+             
       </Card>
     </Container>
   );

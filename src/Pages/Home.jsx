@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     "justify-content": "center",
     "flex-wrap": "wrap",
+    background:'linear-gradient(to top right, #eb0257, #630636)'
   },
 //   div:{
 //     background:'linear-gradient(to top right, #f00244, #6c0e2e)'
