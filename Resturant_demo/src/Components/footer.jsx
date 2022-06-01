@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme)=>({
     footer:{
         // position: 'relative',
-        marginTop:'auto',
+        // marginTop:'auto',
         display: 'flex',
-        justifyContent: 'center'
+        "justify-content": 'center',
     }
 }))
 
@@ -14,8 +14,8 @@ export default function Footer() {
 //   const [value, setValue] = React.useState(0);
     const classes=useStyles()
   return (
-    <div>
-    <footer className={classes.footer}>
+    <div  className={classes.footer}>
+    <footer>
        @copyright fancyResturant. Thank you for visiting
    </footer>
     </div>

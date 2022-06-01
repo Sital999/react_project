@@ -9,7 +9,10 @@ import Header from "./Components/header";
 import Footer from "./Components/footer";
 import Cart from "./Pages/Cart";
 
+
+
 class App extends Component {
+
   render() {
     return (
       <React.Fragment>
