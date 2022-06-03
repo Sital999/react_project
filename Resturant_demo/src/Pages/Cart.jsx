@@ -9,6 +9,8 @@ import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   container: {
+
+    height: "50vh",
     paddingLeft: "20%",
     paddingRight: "20%",
     margin: "10%",

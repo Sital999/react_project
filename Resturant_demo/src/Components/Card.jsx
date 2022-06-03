@@ -21,8 +21,10 @@ import { addComment,deleteComment } from "../Features/commentSlice";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "70%",
+    width: "100%",
     padding: 100,
+    background:'linear-gradient(to top right, #eb0257, #630636)'
+
   },
   bullet: {
     display: "inline-block",
@@ -67,7 +69,7 @@ export default function SimpleCard({ item }) {
     setPrice(Math.floor(Math.random() * 100) + 10);
   }, []);
   return (
-    <Container className={classes.root}>
+    <Container className={classes.root} maxWidth="lg" >
       <Card className={classes.card}>
         <CardContent align="center">
           <img src={item.strCategoryThumb} alt={item.strCategory}></img>

@@ -4,13 +4,21 @@ import {makeStyles} from '@material-ui/core/styles'
 
 const useStyles =makeStyles(()=>({
   container:{
-    margin:"10% 20%",
+    margin:"2rem",
+    paddingLeft:"25rem",
+    paddingTop:"1rem",
+    paddingBottom:"1rem",
+   width: "100vw",
+   height: "80vh",
+    background:'linear-gradient(to top right, #eb0257, #630636)'
     
     
   }
   ,paper:{
     width:"50%",
-    height:"100%"
+    height:"70%",
+    marginBottom:"30%",
+
   },
   div:{
     margin:50,
