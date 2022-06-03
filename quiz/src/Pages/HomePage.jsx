@@ -185,6 +185,9 @@ const HomePage = () => {
                   >
                     RANDOM
                   </Typography>
+
+
+                  
                   <Typography
                     paragraph
                     variant="subtitle1"
