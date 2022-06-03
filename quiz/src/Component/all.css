@@ -1,0 +1,12 @@
+.answerbtn:focus{
+   background-color:rgb(23, 157, 172);
+
+}
+
+
+.answerbtn{
+    padding:1%;
+    margin:10px;
+    height:50%;
+    width:100%;
+}

@@ -1,10 +1,12 @@
 import * as React from 'react';
 import {AppBar,Box,Toolbar,Typography,IconButton} from '@mui/material';
+import {Link} from 'react-router-dom'
 
 import QuizIcon from '@mui/icons-material/Quiz';
 
-export default function Header() {
+export default function Header({title}) {
   return (
+    
     <Box sx={{ flexGrow: 1, width:'100%' }}>
       <AppBar position="static">
         <Toolbar component="div" sx={{height:"13vh",
@@ -16,11 +18,14 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2,ml:"35%" }}
           >
+          <Link to="/">
+           
             <QuizIcon  />
+            </Link>
           </IconButton>
           <Typography variant="h3" component="div" sx={{ flexGrow: 1 ,
         color:"cyan"}}>
-            QuizSite
+            {title}
           </Typography>
        
         </Toolbar>
