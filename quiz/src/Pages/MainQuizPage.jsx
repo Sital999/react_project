@@ -208,6 +208,7 @@ const url ="https://opentdb.com/api.php?amount=10"
                 <>
                 Your result is {numOfCorrect}/10. <br/>You can do better. Don't be upset :-D
                 </>}
+                
                   
                 </Typography>
                 <Typography align="center">
